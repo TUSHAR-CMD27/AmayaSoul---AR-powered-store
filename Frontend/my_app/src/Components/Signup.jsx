@@ -78,7 +78,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/signup", Formdata);
+      const res = await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com//signup", Formdata);
       console.log(res.data.message);
 
       showToast("success", "Signup Successful");
@@ -110,7 +110,7 @@ const Signup = () => {
           {/* Google login */}
           <button
             className="google-btn"
-            onClick={() => window.open("http://localhost:5000/google", "_self")}
+            onClick={() => window.open("https://amayasoul-ar-powered-handcrafted-store.onrender.com//google", "_self")}
           >
             <FcGoogle size={20} style={{ marginRight: "8px" }} />
             Sign up with Google

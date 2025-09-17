@@ -64,7 +64,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       // Call backend logout to clear session
-      await fetch('http://localhost:5000/logout', {
+      await fetch('https://amayasoul-ar-powered-handcrafted-store.onrender.com//logout', {
         method: 'GET',
         credentials: 'include'
       });

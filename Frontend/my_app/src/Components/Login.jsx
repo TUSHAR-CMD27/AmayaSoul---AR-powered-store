@@ -76,7 +76,7 @@ const Login = () => {
     }
 
     axios
-      .post("http://localhost:5000/login", FormData)
+      .post("https://amayasoul-ar-powered-handcrafted-store.onrender.com//login", FormData)
       .then((res) => {
         console.log(res.data.message);
 
@@ -160,7 +160,7 @@ const Login = () => {
             className="google-btn"
             style={{ border: "1px solid #000000ff" }}
             onClick={() =>
-              window.open("http://localhost:5000/google", "_self")
+              window.open("https://amayasoul-ar-powered-handcrafted-store.onrender.com//google", "_self")
             }
           >
             <FcGoogle size={20} style={{ marginRight: "8px" }} />
