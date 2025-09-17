@@ -1,0 +1,146 @@
+/* 🌑 General Page Setup */
+.contact-container {
+  display: flex;
+  flex-direction: row; /* left image, right form */
+  height: 85vh;       /* full viewport height */
+  width: 90vw;        /* full viewport width */
+  background-color: rgba(21,21,21,0.5); /* translucent overlay */
+  backdrop-filter: blur(8px);
+  color: #fff;
+  border-radius: 1rem;
+  margin: 5rem auto;
+  
+  overflow-y: auto;  /* prevent scrollbars if content slightly overflows */
+}
+
+/* 📸 Background Image Section */
+.contact-background {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent blur edges showing */
+}
+
+.contact-background::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top/left/right/bottom: 0 */
+  background: url("/18.jpg") no-repeat center 1% / cover;
+  filter: blur(3px); /* <-- blur works here */
+  transform: scale(1.1); /* keeps edges from cutting off */
+  z-index: -1; /* send behind your content */
+}
+
+
+.contact-heading {
+  font-size: 4rem;
+  -webkit-text-stroke: 0.6px #030303;
+  color: #f7f8f8; /* deep green */
+  background: rgba(26, 26, 26, 0.555); /* translucent overlay */
+  padding: 1rem 2rem;
+  text-shadow: 3x 3px 6px rgba(0,0,0,0.7);
+  border-radius: 12px;
+  border: 1px solid #ebf3f0;
+  text-align: center;
+}
+.form-subtitle{
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; /* light gray */
+    background: rgba(26,26,26,0.137); /* translucent overlay */
+    padding: 0.5rem 1rem;
+    max-width: 70%;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    margin-top: 1rem;
+}
+/* 📝 Contact Form Section */
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: rgba(26,26,26,0.3);
+}
+
+.contact-card {
+  background: rgba(26,26,26,0.3); /* translucent card */
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 8px 24px rgba(0,0,0,0.25);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+/* 📩 Form Inputs */
+form input, form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border-radius: 8px;
+  border: 1px solid #262626;
+  background: #262626;
+  color: #fff;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #a0a0a0;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border: 1px solid #599b7a;
+  box-shadow: 0 0 6px rgba(168,85,247,0.25);
+}
+
+/* ✅ Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #71a08d;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #48b7a6;
+}
+
+/* 🔗 Contact Info */
+.contact-info {
+  text-align: center;
+  margin-top: 1rem;
+  color: #d1d5db;
+}
+
+.contact-info a {
+  color: #74a474;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: #a1cfa1;
+}

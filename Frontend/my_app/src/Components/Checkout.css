@@ -1,0 +1,219 @@
+/* Overall Page Layout */
+.checkout-page-container {
+  max-width: 1400px;
+  margin: 5% 10%;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 1rem;
+  background-color: #c4c3c377; /* Light gray background to match the image */
+}
+
+
+
+/* Main Checkout Container */
+.checkout-container {
+  background-color: #ffffff00;
+  padding: 4rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.checkout-container h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2rem;
+}
+
+/* Two-Column Grid Layout */
+.checkout-columns {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Left column is slightly wider than the right */
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Shared Box Style */
+.details-box {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.details-box h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+/* Styling for the left column (Shipping & Payment) */
+.shipping-payment-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.shipping-payment-column input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.shipping-payment-column .card-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.shipping-payment-column .card-fields input {
+  flex: 1;
+}
+
+/* Cart Item List */
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cart-item .product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.cart-item .item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.order-summary-column, 
+.order-summary-column * {
+  text-shadow: none !important;
+}
+
+.cart-item .item-name {
+  font-weight: 600;
+  color: black;
+}
+
+.cart-item .item-quantity {
+  color: #060404;
+}
+
+.cart-item .item-price {
+  font-weight: 600;
+  color: black;
+}
+
+/* Summary Lines (Subtotal, Shipping, Total) */
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #050303;
+}
+
+.summary-line.total-line {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #000;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Button */
+.checkout-btn {
+  background: #208779;
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #186a5f;
+}
+
+/* --- Mobile Responsiveness --- */
+/*
+  The existing media query handles the transition to a single column.
+  These additions will make sure the spacing and fonts are optimized for mobile.
+*/
+@media (max-width: 768px) {
+  /* This is a great starting point, changing the layout to a single column. */
+  .checkout-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Adjusting the main container padding for a better fit on smaller screens. */
+  .checkout-container {
+    padding: 2rem;
+  }
+  
+  /* Reduce outer margin for better use of screen space. */
+  .checkout-page-container {
+    margin: 5% 5%;
+    padding: 10px;
+  }
+  
+  /* Adjust font sizes for readability on mobile. */
+  .checkout-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .details-box h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Ensure form inputs are still easy to use. */
+  .shipping-payment-column input,
+  .checkout-btn {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+/* To handle even smaller screens, like older smartphones. */
+@media (max-width: 480px) {
+  .checkout-page-container {
+    margin: 2% 2%;
+    padding: 5px;
+  }
+  
+  .checkout-container {
+    padding: 1rem;
+  }
+  
+  /* Stack the card fields vertically for a better input experience. */
+  .shipping-payment-column .card-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .shipping-payment-column .card-fields input {
+    margin-bottom: 10px;
+  }
+}

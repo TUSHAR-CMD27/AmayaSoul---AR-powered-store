@@ -1,0 +1,56 @@
+/* signup-mobile.css */
+
+.signup-container {
+  /* Set to auto to remove fixed height and allow content to dictate height */
+  height: auto;
+  width: auto;
+  flex-direction: column; /* Stack the image and form sections vertically */
+  margin: 10px; /* Reduce margin */
+  border-radius: 0;
+}
+
+.signup-image {
+  flex: none; /* Reset flex to not grow */
+  width: 100%; /* Take up the full width */
+  min-height: 200px; /* Ensure image section has some height */
+  border-radius: 1rem 1rem 0 0; /* Add rounded corners to the top */
+  border-right: none; /* Remove the vertical border */
+  border-bottom: 2px solid #ebf3f0; /* Add a bottom border */
+  display: flex; /* Make sure flexbox properties are applied */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text */
+  padding: 1rem;
+}
+
+.image-text {
+  font-size: 2.5rem; /* Decrease font size for mobile */
+  text-align: center; /* Center the text */
+  padding: 0.5rem;
+  -webkit-text-stroke: 1px #030303;
+  color: #508b74;
+}
+
+.signup-form-wrapper {
+  flex: none; /* Reset flex to not grow */
+  width: 100%; /* Take up full width */
+  padding: 1rem; /* Adjust padding */
+}
+
+.signup-card {
+  width: 100%; /* Make the card fill the wrapper */
+  max-width: none; /* Remove max-width constraint */
+  padding: 1.5rem; /* Adjust padding */
+}
+
+.signup-title {
+  font-size: 1.5rem; /* Adjust heading size */
+  margin-bottom: 1rem;
+}
+
+.google-btn,
+.submit-btn,
+form input {
+  padding: 0.7rem; /* Make buttons and inputs slightly smaller */
+  font-size: 0.9rem;
+}

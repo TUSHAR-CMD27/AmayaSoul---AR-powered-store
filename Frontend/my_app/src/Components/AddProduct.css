@@ -1,0 +1,67 @@
+.add-product-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #101010 0%, #000000 100%);
+  color: white;
+}
+
+.add-product-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-product-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgba(35, 32, 32, 0.9);
+  transition: background 0.3s ease;
+}
+
+.add-product-form input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.add-product-form input[type="file"] {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+}
+
+.add-product-form button {
+  padding: 12px 20px;
+  background: #00b894;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-product-form button:hover {
+  background: #00a085;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 184, 148, 0.3);
+}
+
+.access-denied {
+  text-align: center;
+  margin: 50px;
+  font-size: 1.5rem;
+  color: #e17055;
+}

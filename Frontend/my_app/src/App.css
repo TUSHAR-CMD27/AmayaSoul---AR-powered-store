@@ -1,0 +1,13 @@
+body {
+    background-image: url('./assets/Products/bg.jpg'); /* path to your image */;
+  background-size: cover;         /* cover whole screen */
+  background-position: center;    /* center it */
+  background-attachment: fixed;   /* optional: keeps bg fixed when scrolling */
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #DAD7CD;
+  font-weight: 400;
+  margin: 0%;
+  padding: 3%;
+
+}
+

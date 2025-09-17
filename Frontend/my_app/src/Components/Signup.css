@@ -1,0 +1,167 @@
+/* 🌑 General Page Setup */
+.signup-container {
+  display: flex;
+  height: 87vh;
+  width: 170vh;
+  margin: 20px auto; /* Changed from just 20px to center horizontally */
+  
+  /* Add these properties to center both horizontally and vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  border-radius: 1rem;
+  background-color: #0a0a0a71;
+  color: #fff;
+}
+
+/* 📸 Left Image Section */
+.signup-image {
+  flex: 1; 
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url(kurta.jpg) no-repeat center center;
+
+  flex-wrap: wrap;
+  border-right: 4px solid #ebf3f0; /* light green border */
+}
+
+.image-text {
+  font-size: 5rem;
+  text-align: left;
+    -webkit-text-stroke: 1px #030303;
+  color: #508b74; /* deep green text */
+  
+  padding-left: 01rem;
+  border-radius: 12px;
+  border: 1px solid #e6e6e6;
+}
+
+/* 📝 Signup Form Section */
+.signup-form-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-card {
+  background: rgba(26, 26, 26, 0.3); /* translucent card */
+  padding: 2rem;
+  border-radius: 16px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.signup-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+/* 🔑 Google Button */
+.google-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background: #5c8065; /* muted green */
+  color: #000000;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background: #698b70;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 1.2rem 0;
+  color: #d1d5db; /* light gray */
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #262626;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* 📩 Form Inputs */
+form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border-radius: 8px;
+  border: 1px solid #262626;
+  background: #262626;
+  color: #fff;
+}
+
+form input::placeholder {
+  color: #a0a0a0; /* placeholder text */
+}
+
+form input:focus {
+  outline: none;
+  border: 1px solid #599b7a; /* green border */
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.25); /* purple glow */
+}
+
+/* ✅ Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #71a08d; /* default */
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #48b7a6; /* hover teal */
+}
+
+/* 🔗 Login Link */
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: #d1d5db;
+}
+
+.login-link a {
+  color: #74a474;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #a1cfa1; /* lighter green */
+}

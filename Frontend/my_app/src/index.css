@@ -1,0 +1,32 @@
+/* Reset default margins/padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure html & body take full width and no overflow */
+html, body {
+  width: 100%; /* Changed from 95% to 100% */
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  font-family: 'Quicksand', sans-serif;
+  align-items: center;
+}
+.navbar,
+.home {
+  width: 100%;
+  max-width: 100%;
+}
+body {
+    background-image: url('./assets/Products/bg.jpg'); /* path to your image */;
+  background-size: cover;      /* cover whole screen */
+  background-position: center;    /* center it */
+  background-attachment: fixed;  /* optional: keeps bg fixed when scrolling */
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #DAD7CD;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}

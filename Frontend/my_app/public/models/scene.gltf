@@ -1,0 +1,530 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1179,
+      "max": [
+        0.04115749150514603,
+        0.04115749150514603,
+        0.20555511116981506
+      ],
+      "min": [
+        -0.04115749150514603,
+        -0.04115748777985573,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 14148,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 9432,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 18864,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 5100,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 28296,
+      "componentType": 5126,
+      "count": 1179,
+      "max": [
+        0.04115749150514603,
+        0.04115749150514603,
+        0.20555511116981506
+      ],
+      "min": [
+        -0.04115749150514603,
+        -0.04115748777985573,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 42444,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 18864,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 28296,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 37728,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 47160,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 20400,
+      "componentType": 5125,
+      "count": 5100,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 56592,
+      "componentType": 5126,
+      "count": 1179,
+      "max": [
+        0.04115749150514603,
+        0.04115749150514603,
+        0.20555511116981506
+      ],
+      "min": [
+        -0.04115749150514603,
+        -0.04115748777985573,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 70740,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 37728,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 56592,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 66024,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 75456,
+      "componentType": 5126,
+      "count": 1179,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 40800,
+      "componentType": 5125,
+      "count": 5100,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "fab-model-conversion",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 61200,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 84888,
+      "byteOffset": 61200,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 84888,
+      "byteOffset": 146088,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 56592,
+      "byteOffset": 230976,
+      "byteStride": 16,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 287568,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/T_hand_soap_bottle_baseColor.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_normal.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_white_baseColor.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_white_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_white_normal.png"
+    },
+    {
+      "uri": "textures/T_hand_soap_bottle_green_blank_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "T_hand_soap_bottle",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "T_hand_soap_bottle_white",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "T_hand_soap_bottle_green_blank",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 6
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "SM_Hand_soap_bottle_T_hand_soap_bottle_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "SM_Hand_soap_bottle.001_T_hand_soap_bottle_white_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11,
+            "TEXCOORD_2": 12
+          },
+          "indices": 13,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "SM_Hand_soap_bottle.002_T_hand_soap_bottle_green_blank_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 15,
+            "POSITION": 14,
+            "TANGENT": 16,
+            "TEXCOORD_0": 17,
+            "TEXCOORD_1": 18,
+            "TEXCOORD_2": 19
+          },
+          "indices": 20,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "ffd2d950dbfc4d92b4bbf5b6d6cc8b3c.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        26.149555206298828,
+        1.0
+      ],
+      "name": "SM_Hand_soap_bottle"
+    },
+    {
+      "mesh": 0,
+      "name": "SM_Hand_soap_bottle_T_hand_soap_bottle_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        4.789517879486084,
+        1.0
+      ],
+      "name": "SM_Hand_soap_bottle.001"
+    },
+    {
+      "mesh": 1,
+      "name": "SM_Hand_soap_bottle.001_T_hand_soap_bottle_white_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        -17.329404830932617,
+        1.0
+      ],
+      "name": "SM_Hand_soap_bottle.002"
+    },
+    {
+      "mesh": 2,
+      "name": "SM_Hand_soap_bottle.002_T_hand_soap_bottle_green_blank_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    }
+  ]
+}

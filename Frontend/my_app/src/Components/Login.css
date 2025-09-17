@@ -1,0 +1,250 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body, .app-container {
+  font-family: 'Inter', sans-serif;
+  margin: 25px;
+  padding: 0;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
+}
+.form-link-button-purple:Link{
+  color: white;
+  text-decoration: none;
+}
+
+/* Main card */
+.main-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8rem;
+  overflow: hidden;
+
+  /* Translucent effect */
+  background: rgba(26, 26, 26, 0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  max-width: 99rem;
+  width: 76rem;
+}
+
+@media (min-width: 768px) {
+  .main-card {
+    flex-direction: row;
+  }
+}
+
+/* Left section (image side) */
+.left-section {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .left-section {
+    width: 50%;
+  }
+}
+.image-text-content{
+  font-size: 3rem;
+  color: #11422e;
+  align-items: flex-start;
+  border: 2px solid #ebf3f0;
+  border-radius: 20px;
+  text-align: start;
+  font-weight: 700;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.tt{
+  top: 10%;
+   -webkit-text-stroke: 1px #74a474; /* stroke color + thickness */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(rgba(127, 191, 112, 0.614), rgb(112, 176, 112), rgb(97, 185, 153));
+   /* slightly lighter overlay */
+}
+
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: #fff;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+
+
+/* Right section (form) */
+.right-section {
+  position: relative;
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: rgba(26, 26, 26, 0.5); /* translucent background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .right-section {
+    width: 50%;
+  }
+}
+
+/* Form headings */
+.form-heading {
+  text-align: left;
+  
+}
+
+.form-heading h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.form-heading p {
+  color: #d1d5db;
+  font-size: 1.4rem;
+}
+
+/* Links in form */
+.form-link-button {
+  display: inline-block;          /* ensures width/height work */
+  color: #83d183;
+  font-weight: 600;
+  margin-left: 3.5rem;
+  font-size: 0.9rem;
+  padding: 0.7rem 2rem;           /* flexible height/width */
+  border-radius: 0.6rem;
+  border: 1px solid #599b7a;
+  background-color: transparent;
+  text-decoration: none;          /* remove underline */
+  transition: all 0.2s ease;
+  cursor: pointer;                /* shows pointer on hover */
+}
+
+
+
+.form-link-button:hover {
+  color: #fdfdfd;
+}
+
+/* Form container */
+.form-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Inputs */
+.input-field {
+  display: block;
+  width: 100%;
+  border-radius: 9999px;
+  border: 1px solid #4b5563;
+  background-color: #262626;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.input-field::placeholder {
+  color: #a0a0a0;
+  text-align: center;
+}
+
+.input-field:focus {
+  border-color: #599b7a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+}
+
+/* Password toggle button */
+
+
+.eye-button:hover {
+  color: #fff;
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #71a08d;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #48b7a6;
+  color: #262626;
+}
+.eye-button {
+  color: #fff;
+  height: max-content;
+}
+
+/* Social login buttons */
+.social-button {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: space-between;
+  gap: 0.5rem;
+  justify-content: space-around;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid black;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  background-color: #32de5d 0.9;
+  color: #000000;
+}
+
+.social-button:hover {
+  background-color: #698b70;
+}
+.google-btn{
+  background-color: #fbfbfb;
+  border: 1px solid #000000ff;
+  color: #000000;
+}
+
+.purple-link {
+  color: #74a474;
+  text-decoration: none;
+  white-space: nowrap;       /* prevents line breaks */
+  transition: color 0.2s;
+}
+
+.purple-link:hover {
+  color: #a1cfa1;            /* optional hover effect */
+}

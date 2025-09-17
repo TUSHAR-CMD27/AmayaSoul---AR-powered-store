@@ -1,0 +1,60 @@
+/* Desktop / Tablet styles only */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 8%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.about-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.about-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-image img {
+  width: 80%;          /* fixed proportion for desktop/tablet */
+  max-height: 30rem;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #ebf3f0;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  flex: 1;
+  padding: 1rem 1rem;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: #b6ffb6;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.about-text p {
+  font-size: 1.7rem;
+  line-height: 1.8;
+  color: #dadada;
+}
+
+.highlight {
+  color: #98d498;
+  font-weight: 700;
+}

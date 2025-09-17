@@ -1,0 +1,189 @@
+/* -------------------------- */
+/* Desktop / Tablet Styles Only */
+/* -------------------------- */
+.home-hero {
+  display: flex;
+  flex-direction: row; /* horizontal layout for desktop */
+  margin-top: 15rem;   /* increased top margin from navbar */
+  height: 87vh;
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+  margin-bottom: auto;
+}
+
+.home-left {
+  flex: 1;
+  width: 50%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 0 4rem;
+}
+
+.home-left h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #e0f6ec;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.home-left h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #dcffed;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2), -1px -1px 3px rgba(255, 255, 255, 0.4);
+  margin-top: 0;
+}
+
+.home-left p {
+  font-size: 1.9rem;
+  color: rgb(80, 201, 145);
+  font-weight: 600;
+  max-width: 32rem;
+  margin-top: 1rem;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2), -1px -1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.home-right {
+  flex: 1.5;
+  width: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.btn1 {
+  position: absolute;
+  right: 6%;
+  bottom: 40%;
+  font-size: 1.2rem;
+  color: aliceblue;
+  padding: 1rem 2.5rem;
+  border-radius: 1.5rem;
+  border: 2px solid #ffffff;
+  background: transparent;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.btn1:hover {
+  background-color: rgba(72, 183, 166, 0.2);
+  border-color: #83d183;
+}
+
+/* Show "Happy" text for desktop */
+.happy, .happy2, .para {
+  display: block;
+}
+
+.happy {
+  font-size: 11.6vw;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-weight: 1000;
+  padding-left: 4%;
+  position: absolute;
+  top: -20%;
+  color: #d9d9d9;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.happy2 {
+  font-size: 11.6vw;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-weight: 1000;
+  padding-left: 8%;
+  position: absolute;
+  top: 2%;
+  color: #5f733c;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.para {
+  font-size: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 1000;
+  padding-left: 8%;
+  position: absolute;
+  top: 40%;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.home-3d-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 10rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.home-3d-products model-viewer {
+  width: 60%;
+  max-width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  background: #1a1a1a46;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.home-3d-products h2 {
+  font-size: 2rem;
+  color: #e0f6ec;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(4, 4, 4, 0.4);
+}
+
+.home-3d-products h1 {
+  font-size: 2.5rem;
+  color: #95d3b7;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(7, 7, 7, 0.872);
+}
+
+.home-3d-products p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2), -1px -1px 3px rgba(11, 10, 10, 0.4);
+  max-width: 32rem;
+  margin: 1rem auto 1rem auto;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.description {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  transform: translateY(-50%);
+  text-align: right;
+  max-width: 28rem;
+  z-index: 3;
+}
+
+.description h2 {
+  font-size: 1.7rem;
+  color: #f0fffb;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -1px -1px 3px rgba(10, 7, 7, 0.644);
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
