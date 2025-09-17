@@ -5,7 +5,7 @@ import '@google/model-viewer';
 const Product3DViewer = ({ modelSrc, altText }) => {
   return (
     <model-viewer
-      src='/public/models/Plant/scene.gltf'          
+      src='/public/models/majesty_palm_plant/scene.gltf'          
       alt="Plant 3d model"              // accessibility text
       ar                           // enables AR
       ar-modes="webxr scene-viewer quick-look"  // supports mobile AR
