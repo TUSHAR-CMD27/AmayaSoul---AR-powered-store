@@ -21,7 +21,7 @@ import { useCart } from "./CartContext";
 // Dummy categories
 const categories = ["All", "Clothing", "Jewelry", "Decor", "Accessories"];
 
-// Dummy products
+
 const dummyProducts = [
   { id: 1, name: "Handcrafted Kurtis", category: "Clothing", price: 1200, img: kurtaImg, desc: "A beautiful handcrafted kurta with traditional embroidery." },
   { id: 2, name: "Emerald Glow Face Serum - Ayurvedic Radiance Elixir", category: "Cosmetic", price: 800, img: img6, desc: "Infused with ancient Ayurvedic wisdom, this luxurious emerald-hued serum combines 100mg CBD with powerful adaptogens to deliver deep moisture and luminous glow. Like the precious emeralds adorning Maharani's crown, this botanical elixir illuminates your skin with nature's most potent healing herbs, creating an ethereal radiance worthy of royalty." },
