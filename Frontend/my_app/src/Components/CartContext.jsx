@@ -39,7 +39,7 @@ export function CartProvider({ children }) {
         );
       } else {
         // Always use 'image' property for cart items
-        return [...prev, { ...product, image: product.img || product.image, quantity: 1 }];
+        return [...prev, { ...product, image: product.img || product.image,description: product.desc || product.description, quantity: 1 }];
       }
     });
   };
