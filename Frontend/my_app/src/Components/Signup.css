@@ -1,20 +1,22 @@
 /* 🌑 General Page Setup */
 .signup-container {
   display: flex;
-  height: 87vh;
-  width: 170vh;
-  margin: 20px auto; /* Changed from just 20px to center horizontally */
-  
-  /* Add these properties to center both horizontally and vertically */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
+  flex-direction: column; /* stack on mobile */
+  width: 90%;            /* fit within screen */
+  max-width: 900px;      /* optional max width */
+  margin: 20px auto;     /* center horizontally */
   border-radius: 1rem;
-  background-color: #0a0a0a71;
+  background-color: rgba(10,10,10,0.45);
   color: #fff;
+  min-height: 80vh;      /* flexible height */
 }
+
+@media (min-width: 768px) {
+  .signup-container {
+    flex-direction: row; /* two columns on larger screens */
+  }
+}
+
 
 /* 📸 Left Image Section */
 .signup-image {
