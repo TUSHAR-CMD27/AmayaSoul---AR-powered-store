@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "@google/model-viewer"; 
 import "./Explore3d.css";
 import { useCart } from "./CartContext";
+import Swal from 'sweetalert2'
 
 // Dummy 3D product list
 const threeDProducts = [
@@ -11,6 +12,7 @@ const threeDProducts = [
     category: "Decor",
     price: 1200,
     model: "/models/scene.gltf",
+    img:"/models/imgs/SoapDispenser.png",
     desc: "A beautifully designed perfume bottle 3D model."
   },
   {
@@ -18,6 +20,7 @@ const threeDProducts = [
     name: "Kulhad Cups (Set of 6)",
   category: "Essentials",
   price: 900,
+  img: "/models/imgs/Diya.png",
   model: "/models/kulhad_filled_with_tea/scene.gltf",
   desc: "Handcrafted kulhad cups that bring the earthy charm of traditional chai to your modern table."
 
@@ -28,6 +31,7 @@ const threeDProducts = [
     category: "Accessories",
     price: 3500,
     model: "/models/puja_thali_set/scene.gltf",
+    img:"/models/imgs/thali.png",
     desc: "Trendy sneaker model with detailed textures."
   },
   {
@@ -35,6 +39,7 @@ const threeDProducts = [
     name: "Authentic Brass Indian Lamp",
     category: "Decor",
     price: 600,
+    img:"/models/imgs/puja.png",
     model: "/models/golden_ritual_lamp/scene.gltf",
     desc: "Handcrafted vase 3D model with AR experience."
   },
@@ -43,6 +48,7 @@ const threeDProducts = [
     name: "6ft Palm Plant",
     category: "Decor",
     price: 1800,
+    img:"/models/imgs/dk.png",
     model: "/models/house_palm_plant/scene.gltf",
     desc: "Stylish table lamp model."
   },
@@ -51,6 +57,7 @@ const threeDProducts = [
   name: "Shivling Statue",
   category: "Spiritual",
   price: 2500,
+  img:"/models/imgs/shivling.png",
   model: "/models/mahadev_shivalinga/scene.gltf",
   desc: "A finely detailed Shivling statue symbolizing strength and devotion, perfect for home temples or spiritual decor."
 }
@@ -60,6 +67,7 @@ const threeDProducts = [
   name: "Clay Water Pot",
   category: "Essentials",
   price: 700,
+  img:"/models/imgs/vase.png",
   model: "/models/indian_clay_matka_-_water_clay_pot/scene.gltf",
   desc: "Traditional clay water pot that naturally cools water, combining healthy living with rustic charm."
 }
@@ -69,6 +77,7 @@ const threeDProducts = [
   name: "Golden Vase",
   category: "Decor",
   price: 3200,
+  img:"/models/imgs/vase.png",
   model: "/models/golden_and_obsidian_vases_free_version/scene.gltf",
   desc: "Elegant golden vase with a luxurious finish, designed to enhance modern interiors with a royal touch."
 }
@@ -77,6 +86,7 @@ const threeDProducts = [
   name: "5ft Indoor Plant",
      category: "Decor",
      price: 2500,
+     img:"/models/imgs/5ft.png",
      model: "/models/Plant/scene.gltf",
      desc: "Modern 3D chair design with AR view."
  },{
@@ -84,6 +94,7 @@ const threeDProducts = [
   name : "Indoor Plant - Palm"
   ,   category: "Decor",
      price: 2200,
+     img:"/models/imgs/palm.png",
      model: "/models/majesty_palm_plant/scene.gltf",
      desc: "Lush indoor palm plant that brings a touch of nature and tranquility to any living space."
  },{
@@ -91,10 +102,12 @@ const threeDProducts = [
   name: "Aglaonqema Plant - 4ft",
       category: "Decor",
       price: 2000,
+      img:"/models/imgs/a_plant.png",
       model: "/models/aglaonema_plant/scene.gltf",
       desc: "Vibrant Aglaonema plant known for its striking foliage, perfect for adding color and life to your home or office."
  }
 ];
+
 
 export default function Explore3d() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -111,6 +124,27 @@ export default function Explore3d() {
       (p.name.toLowerCase().includes(search.toLowerCase()) ||
         p.desc.toLowerCase().includes(search.toLowerCase()))
   );
+
+  //ShowToast
+    const showToast = (title = "Added to cart!", icon = "success") => {
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon,
+      title,
+      showConfirmButton: false,
+      timer: 2500,
+      timerProgressBar: true,
+      background: "#ffffff",
+      color: "#1b5e20",
+      iconColor: "#2e7d32",
+      didOpen: (toast) => {
+        toast.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
+        toast.style.border = "1px solid #2e7d32";
+        toast.style.fontWeight = "500";
+      },
+    });
+  };
 
   return (
     <div className="explore-bg">
@@ -161,7 +195,7 @@ export default function Explore3d() {
               <p className="explore-card-price">₹{product.price}</p>
               <button
                 className="explore-card-btn"
-                onClick={() => addToCart(product)}
+                onClick={() => {addToCart(product), showToast(`${product.name} added to cart!`)}}
               >
                 Add to Cart
               </button>

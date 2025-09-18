@@ -17,6 +17,7 @@ import img3 from "../assets/Products/3.jpg";
 import img4 from "../assets/Products/4.jpg";
 import img5 from "../assets/Products/5.jpg";
 import { useCart } from "./CartContext";
+import Swal from "sweetalert2"
 
 // Dummy categories
 const categories = ["All", "Clothing", "Jewelry", "Decor", "Accessories"];
@@ -49,6 +50,26 @@ export default function Explore() {
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { addToCart } = useCart();
+
+  const showToast = (title = "Added to cart!", icon = "success") => {
+  Swal.fire({
+    toast: true,
+    position: "top-end",
+    icon,
+    title,
+    showConfirmButton: false,
+    timer: 2500,
+    timerProgressBar: true,
+    background: "#ffffff",
+    color: "#1b5e20",
+    iconColor: "#2e7d32",
+    didOpen: (toast) => {
+      toast.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
+      toast.style.border = "1px solid #2e7d32";
+      toast.style.fontWeight = "500";
+    },
+  });
+};
 
   // Fetch products
   useEffect(() => {
@@ -142,7 +163,9 @@ export default function Explore() {
               <p className="explore-card-price">₹{product.price}</p>
               <button
                 className="explore-card-btn"
-                onClick={() => addToCart(product)}
+                onClick={() => {addToCart(product),
+                   showToast(`${product.name} added to cart!`)}}
+               
               >
                 Add to Cart
               </button>
