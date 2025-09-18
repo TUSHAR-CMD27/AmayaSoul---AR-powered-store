@@ -16,6 +16,8 @@ import AdminDashboard from "./Components/AdminDashboard";
 import Cart from "./Components/Cart";
 import { CartProvider } from "./Components/CartContext";
 import { AuthProvider } from "./Components/AuthContext";
+import { Toaster } from "react-hot-toast";  
+
 import { useState, useEffect } from "react";
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -64,6 +66,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
         
            </Routes>
+           <Toaster position="top-center" reverseOrder={false} />
         </BrowserRouter>
       </CartProvider>
     </AuthProvider>

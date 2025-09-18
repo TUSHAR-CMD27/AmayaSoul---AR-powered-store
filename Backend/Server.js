@@ -11,7 +11,7 @@ require('./config/passport');
 
 const app = express();
 app.use(cors({
-    origin: 'https://amayasoul-ar-powered-handcrafted-store.onrender.com/',
+    origin: 'https://amayasoul-ar-powered-handcrafted-store.onrender.com',
     credentials: true
 }));
 app.use(express.json());

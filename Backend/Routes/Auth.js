@@ -4,6 +4,8 @@ const router = express.Router();
 const User = require('../Models/User');
 const bcrypt= require('bcrypt');
 const passport = require('passport');
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+
 
 router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
@@ -66,8 +68,8 @@ router.post('/admin/login', async (req, res) => {
 });
 
 //Login with Google
-router.get('/google', passport.authenticate('google',{ scope: ['profile', 'email']}))
-router.get('/google/callback', passport.authenticate('google',{ failureRedirect : '/login'}),
+router.get('google', passport.authenticate('google',{ scope: ['profile', 'email']}))
+router.get('google/callback', passport.authenticate('google',{ failureRedirect : '/login'}),
 (req,res)=>{
     console.log('Google OAuth callback received:', req.user);
     
@@ -84,10 +86,10 @@ router.get('/google/callback', passport.authenticate('google',{ failureRedirect 
     // Encode user data for URL
     const encodedUserData = encodeURIComponent(JSON.stringify(userData));
     
-    console.log('Redirecting to:', `http://localhost:5173/explore?user=${encodedUserData}`);
+    console.log('Redirecting to:', `https://amayasoul-ar-powered-handcrafted-store.onrender.com/explore?user=${encodedUserData}`);
     
     // Redirect to frontend with user data
-    res.redirect(`http://localhost:5173/explore?user=${encodedUserData}`);
+    res.redirect(`https://amayasoul-ar-powered-handcrafted-store.onrender.com/explore?user=${encodedUserData}`);
 }
 );
 
