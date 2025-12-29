@@ -4,11 +4,11 @@
   flex-direction: column; /* stack on mobile */
   width: 90%;            /* fit within screen */
   max-width: 900px;      /* optional max width */
-  margin: 20px auto;     /* center horizontally */
+  margin: 0;              /* Remove margin, parent handles centering */
   border-radius: 1rem;
   background-color: rgba(10,10,10,0.45);
   color: #fff;
-  min-height: 80vh;      /* flexible height */
+  justify-content: center; /* Center vertically */
 }
 
 @media (min-width: 768px) {

@@ -3,10 +3,14 @@
 .signup-container {
   /* Set to auto to remove fixed height and allow content to dictate height */
   height: auto;
-  width: auto;
+  width: 95%;
+  max-width: 500px;
   flex-direction: column; /* Stack the image and form sections vertically */
-  margin: 10px; /* Reduce margin */
-  border-radius: 0;
+  margin: 0 auto;
+  margin-top: calc(60px + 1rem); /* Account for mobile navbar height + spacing */
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  justify-content: center; /* Center vertically */
 }
 
 .signup-image {

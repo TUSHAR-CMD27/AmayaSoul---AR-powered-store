@@ -1,15 +1,25 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-body, .app-container {
+/* Login page wrapper - centers the form */
+body:has(.main-card), 
+.app-container:has(.main-card),
+.login-page-wrapper {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
+  background-color: #0a0a0a43;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding-top: 9vh; /* Account for fixed navbar */
+  padding-bottom: 2rem;
+}
+
+/* Ensure main-card is centered */
+.main-card {
+  margin: 0 auto;
 }
 .form-link-button-purple:Link{
   color: white;
@@ -28,8 +38,9 @@ body, .app-container {
   backdrop-filter: blur(8px);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-  max-width: 99rem;
-  width: 76rem;
+  max-width: 80rem;
+  width: 90%;
+  margin: 0; /* Parent wrapper handles centering */
 }
 
 @media (min-width: 768px) {

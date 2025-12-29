@@ -15,7 +15,7 @@ function AdminDashboard() {
 
   useEffect(() => {
     axios
-      .get("https://amayasoul-ar-powered-handcrafted-store.onrender.com/products")
+      .get("http://localhost:5000/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -47,7 +47,7 @@ function AdminDashboard() {
     formData.append("image", newProduct.image);
 
     try {
-      const res = await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com/products", formData, {
+      const res = await axios.post("http://localhost:5000/products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -63,7 +63,7 @@ function AdminDashboard() {
   // delete product
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://amayasoul-ar-powered-handcrafted-store.onrender.com/products/${id}`);
+      await axios.delete(`http://localhost:5000/products/${id}`);
       setProducts(products.filter((p) => p._id !== id));
     } catch (err) {
       console.error(err);

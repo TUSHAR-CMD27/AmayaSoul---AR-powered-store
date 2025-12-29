@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useAuth } from "./AuthContext";
 import { useCart } from "./CartContext";
+import { gsap } from 'gsap';
+import { slideIn, fadeIn, hoverScale } from '../utils/animations';
 
 const Navbar = () => {
   const { user, isLoggedIn, logout } = useAuth();
@@ -11,6 +13,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const navbarRef = useRef(null);
+  const logoRef = useRef(null);
+  const menuRef = useRef(null);
+  const cartDrawerRef = useRef(null);
 
   // Detect screen size
   useEffect(() => {
@@ -38,12 +44,72 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  // GSAP Animations for Navbar - Very subtle, opacity only
+  useEffect(() => {
+    if (!navbarRef.current || isMobile) return; // Skip animations on mobile
+
+    const ctx = gsap.context(() => {
+      // Only subtle fade for logo - no transforms
+      if (logoRef.current) {
+        gsap.fromTo(
+          logoRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.4, delay: 0.1, ease: 'power2.out' }
+        );
+      }
+
+      // Subtle nav links fade - only on desktop, no transforms
+      if (menuRef.current) {
+        const links = menuRef.current.querySelectorAll('.navbar-link, .navbar-cart-btn');
+        gsap.fromTo(
+          links,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.03,
+            delay: 0.15,
+            ease: 'power2.out'
+          }
+        );
+
+        // Hover animations - only scale, preserve layout
+        links.forEach(link => {
+          const handleEnter = () => {
+            gsap.to(link, { scale: 1.05, duration: 0.2, ease: 'power2.out' });
+          };
+          const handleLeave = () => {
+            gsap.to(link, { scale: 1, duration: 0.2, ease: 'power2.out' });
+          };
+          link.addEventListener('mouseenter', handleEnter);
+          link.addEventListener('mouseleave', handleLeave);
+        });
+      }
+    }, navbarRef);
+
+    return () => ctx.revert();
+  }, [isMobile]);
+
+  // Cart drawer animation
+  useEffect(() => {
+    if (cartOpen && cartDrawerRef.current) {
+      const drawer = cartDrawerRef.current.querySelector('.cart-drawer');
+      if (drawer) {
+        gsap.fromTo(
+          drawer,
+          { x: '100%' },
+          { x: 0, duration: 0.4, ease: 'power3.out' }
+        );
+      }
+    }
+  }, [cartOpen]);
+
   return (
     <>
       {/* Navbar */}
-      <nav className="navbar">
+      <nav className="navbar" ref={navbarRef}>
         {/* Logo */}
-        <div className="navbar-logo">
+        <div className="navbar-logo" ref={logoRef}>
           <Link className="navbar-logo-link" to="/" onClick={closeMobileMenu}>
             🌲 AnayaSoul
           </Link>
@@ -69,7 +135,7 @@ const Navbar = () => {
         )}
 
         {/* Nav Links */}
-        <ul className={`navbar-list ${menuOpen ? "active" : ""}`}>
+        <ul className={`navbar-list ${menuOpen ? "active" : ""}`} ref={menuRef}>
           <li>
             <Link to="/" className="navbar-link" onClick={closeMobileMenu}>
               Home
@@ -161,7 +227,7 @@ const Navbar = () => {
 
       {/* Cart Drawer */}
       {cartOpen && (
-        <div className="cart-drawer-overlay" onClick={() => setCartOpen(false)}>
+        <div className="cart-drawer-overlay" onClick={() => setCartOpen(false)} ref={cartDrawerRef}>
           <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
             <div className="cart-drawer-header">
               Your Cart

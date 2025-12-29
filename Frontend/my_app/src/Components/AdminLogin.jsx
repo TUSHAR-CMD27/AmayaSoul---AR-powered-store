@@ -14,7 +14,8 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com/admin/login", formData, {
+      // Use local backend URL for development
+      const res = await axios.post("http://localhost:5000/admin/login", formData, {
         withCredentials: true,
       });
 
@@ -25,7 +26,7 @@ const AdminLogin = () => {
       nav("/admin/dashboard");
     } catch (err) {
       console.error(err);
-      alert("Invalid admin credentials");
+      alert(err);
     }
   };
 

@@ -3,7 +3,9 @@
 /* Adjusting the main card for a mobile-first stacked view */
 .main-card {
   width: 90%; /* Make the card take up more width on mobile */
+  max-width: 500px;
   margin: 0 auto;
+  margin-top: calc(60px + 2rem); /* Account for mobile navbar height + spacing */
   min-height: auto;
 }
 

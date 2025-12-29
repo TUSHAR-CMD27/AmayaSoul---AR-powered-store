@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // We no longer import Login.css directly here
 import img2 from "../assets/Products/2.jpg";
 import { Link } from "react-router-dom";
@@ -9,6 +9,8 @@ import { useAuth } from "./AuthContext";
 import Swal from "sweetalert2";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider, isFirebaseConfigured } from "../config/firebase";
+import { gsap } from 'gsap';
+import { slideIn, fadeIn, scaleIn } from '../utils/animations';
 
 const Login = () => {
   const nav = useNavigate();
@@ -19,6 +21,9 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const loginRef = useRef(null);
+  const leftSectionRef = useRef(null);
+  const rightSectionRef = useRef(null);
 
   useEffect(() => {
     const checkDevice = () => {
@@ -39,6 +44,33 @@ const Login = () => {
 
     return () => window.removeEventListener("resize", checkDevice);
   }, [isMobile]);
+
+  // GSAP Animations for Login
+  useEffect(() => {
+    if (!loginRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Left section slide in
+      if (leftSectionRef.current) {
+        slideIn(leftSectionRef.current, 'left', 0.2);
+      }
+
+      // Right section slide in
+      if (rightSectionRef.current) {
+        slideIn(rightSectionRef.current, 'right', 0.4);
+        
+        // Form elements stagger
+        const formElements = rightSectionRef.current.querySelectorAll('input, button');
+        gsap.fromTo(
+          formElements,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, delay: 0.6, ease: 'power2.out' }
+        );
+      }
+    }, loginRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -128,9 +160,10 @@ const Login = () => {
   };
 
   return (
-    <div className="main-card">
+    <div className="login-page-wrapper" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: isMobile ? '60px' : '9vh', paddingBottom: '2rem' }}>
+      <div className="main-card" ref={loginRef}>
       {/* Left Section */}
-      <div className="left-section" style={{ backgroundImage: `url(${img2})` }}>
+      <div className="left-section" style={{ backgroundImage: `url(${img2})` }} ref={leftSectionRef}>
         <div className="overlay"></div>
         <div className="logo" style={{ color: "darkgreen" }}>
           AKC CERAMICS
@@ -141,7 +174,7 @@ const Login = () => {
       </div>
 
       {/* Right Section */}
-      <div className="right-section">
+      <div className="right-section" ref={rightSectionRef}>
         <div className="form-heading">
           <h1>Log into your account</h1>
           <p>
@@ -196,6 +229,7 @@ const Login = () => {
             Continue with Google
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

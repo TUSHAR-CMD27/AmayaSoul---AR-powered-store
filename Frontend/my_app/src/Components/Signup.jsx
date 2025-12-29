@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider, isFirebaseConfigured } from "../config/firebase";
+import { gsap } from 'gsap';
+import { slideIn, fadeIn, staggerFadeIn } from '../utils/animations';
 
 const Signup = () => {
   const nav = useNavigate();
@@ -14,6 +16,8 @@ const Signup = () => {
     password: "",
   });
   const [isMobile, setIsMobile] = useState(false);
+  const signupRef = useRef(null);
+  const formRef = useRef(null);
 
   useEffect(() => {
     const checkDevice = () => {
@@ -34,6 +38,34 @@ const Signup = () => {
 
     return () => window.removeEventListener("resize", checkDevice);
   }, [isMobile]);
+
+  // GSAP Animations for Signup
+  useEffect(() => {
+    if (!signupRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Image section
+      const imageSection = signupRef.current.querySelector('.signup-image');
+      if (imageSection) {
+        fadeIn(imageSection, 'left', 0.2);
+      }
+
+      // Form section
+      if (formRef.current) {
+        fadeIn(formRef.current, 'right', 0.4);
+        
+        // Form elements stagger
+        const formElements = formRef.current.querySelectorAll('input, button');
+        gsap.fromTo(
+          formElements,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, delay: 0.6, ease: 'power2.out' }
+        );
+      }
+    }, signupRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (e) => {
     setFormdata({
@@ -127,16 +159,17 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      {/* Left image section */}
-      <div className="signup-image">
-        <h1 className="image-text">KURTIS - 30% OFF🌲</h1>
-      </div>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: isMobile ? '60px' : '9vh', paddingBottom: '2rem' }}>
+      <div className="signup-container" ref={signupRef}>
+        {/* Left image section */}
+        <div className="signup-image">
+          <h1 className="image-text">KURTIS - 30% OFF🌲</h1>
+        </div>
 
-      {/* Right signup form section */}
-      <div className="signup-form-wrapper">
-        <div className="signup-card">
-          <h2 className="signup-title">Create an account</h2>
+        {/* Right signup form section */}
+        <div className="signup-form-wrapper" ref={formRef}>
+          <div className="signup-card">
+            <h2 className="signup-title">Create an account</h2>
 
           {/* Google login */}
           <button
@@ -182,6 +215,7 @@ const Signup = () => {
           <p className="login-link">
             Already have an account? <a href="/login">Login</a>
           </p>
+          </div>
         </div>
       </div>
     </div>

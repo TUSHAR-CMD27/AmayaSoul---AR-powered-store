@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./About.css"; // default desktop/tablet styles
 import AOS from "aos";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { fadeIn, staggerFadeIn } from '../utils/animations';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import img5 from "../assets/Products/5.jpg";
 import img7 from "../assets/Products/new7.jpg";
@@ -9,6 +14,7 @@ import img4 from "../assets/Products/new4.jpg";
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 1200, once: true });
@@ -21,6 +27,46 @@ export default function About() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // GSAP Animations for About
+  useEffect(() => {
+    if (!aboutRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const rows = aboutRef.current.querySelectorAll('.about-row');
+      
+      rows.forEach((row, index) => {
+        ScrollTrigger.create({
+          trigger: row,
+          start: 'top 80%',
+          animation: gsap.fromTo(
+            row,
+            { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+            { opacity: 1, x: 0, duration: 1, ease: 'power3.out' }
+          )
+        });
+
+        // Image and text stagger
+        const image = row.querySelector('.about-image');
+        const text = row.querySelector('.about-text');
+        
+        if (image) {
+          gsap.fromTo(
+            image,
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 0.8, delay: 0.2, ease: 'power2.out' }
+          );
+        }
+        
+        if (text) {
+          const textElements = text.querySelectorAll('h2, p');
+          staggerFadeIn(textElements, 'up', 0.4, 0.2);
+        }
+      });
+    }, aboutRef);
+
+    return () => ctx.revert();
+  }, []);
+
   // Conditionally import mobile CSS
   useEffect(() => {
     if (isMobile) {
@@ -29,7 +75,7 @@ export default function About() {
   }, [isMobile]);
 
   return (
-    <section id="abb" className="about-section">
+    <section id="abb" className="about-section" ref={aboutRef}>
       {/* Row 1 */}
       <div className="about-row">
         <div className="about-image">

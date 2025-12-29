@@ -6,9 +6,11 @@
   position: fixed;      /* stay at top */
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;          /* full width */
   height: 9vh;
-  background-color:transparent; /* semi-transparent dark bg */
+  background-color: rgba(10, 10, 10, 0.181); /* semi-transparent dark bg */
+  backdrop-filter: blur(1px);
   color: #DAD7CD;
   display: flex;
   align-items: center;
@@ -16,8 +18,8 @@
   padding: 0.75rem 2rem;
   font-family: 'Quicksand', sans-serif;
   font-size: 3vh;
-  box-shadow: 0 2px 8px rgba(52, 78, 65, 0.05);
-  z-index: 1000;       /* ensures it stays above content */
+  box-shadow: 0 2px 8px rgba(52, 78, 65, 0.1);
+  z-index: 9999;       /* ensures it stays above all content */
 }
 #home, #abb {
   scroll-margin-top: 70px; /* same as navbar height */

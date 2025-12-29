@@ -30,18 +30,107 @@
     <meta name="twitter:description" content="Shop unique handcrafted clothing, jewelry, home decor, and accessories at AmayaSoul." />
     <meta name="twitter:image" content="%PUBLIC_URL%/assets/logo.png" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="./public/favicon_io (1)/favicon-16x16.png" type="image/png" />
+    <!-- Favicon - Fixed paths for Vite (public folder files are served from root) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io (1)/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io (1)/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io (1)/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon_io (1)/favicon.ico" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Preconnect for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+    
+    <!-- Prevent browser from trying to fetch favicon from route paths -->
+    <link rel="shortcut icon" href="/favicon_io (1)/favicon.ico" />
 
+    <!-- Critical CSS to prevent FOUC -->
+    <style>
+      /* Critical inline styles - prevents FOUC */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        font-family: 'Quicksand', 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: #0a0a0a;
+        color: #DAD7CD;
+        font-weight: 400;
+        min-height: 100vh;
+        /* Background image will load from CSS, but we set a fallback color */
+      }
+      
+      #root {
+        min-height: 100vh;
+        width: 100%;
+      }
+      
+      /* Loading screen - shown until React loads */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      #loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(113, 160, 141, 0.3);
+        border-top: 4px solid #71a08d;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loader-text {
+        margin-top: 20px;
+        color: #DAD7CD;
+        font-size: 1rem;
+        font-family: 'Quicksand', sans-serif;
+      }
+      
+      /* Hide content until React is ready */
+      #root:empty + #loading-screen {
+        display: flex;
+      }
+    </style>
   
   </head>
   <body>
     <div id="root"></div>
+    <!-- Loading screen - removed by React when app loads -->
+    <div id="loading-screen">
+      <div class="loader"></div>
+      <div class="loader-text">Loading AmayaSoul...</div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
