@@ -33,7 +33,7 @@ const AddProduct = () => {
     data.append("image", image); // Changed from "images" to "image"
 
     try {
-      await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com//products", data, { // Changed endpoint
+      await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com/products", data, { // Changed endpoint
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("✅ Product added successfully!");

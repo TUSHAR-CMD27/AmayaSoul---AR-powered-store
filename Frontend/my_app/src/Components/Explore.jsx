@@ -75,7 +75,10 @@ export default function Explore() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://amayasoul-ar-powered-handcrafted-store.onrender.com/");
+        const res = await fetch("https://amayasoul-ar-powered-handcrafted-store.onrender.com/products");
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const data = await res.json();
         const cloudinaryProducts = data.map((p) => ({
           id: p._id,

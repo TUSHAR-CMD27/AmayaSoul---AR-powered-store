@@ -3,6 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../config/firebase";
 
 const Signup = () => {
   const nav = useNavigate();
@@ -95,6 +97,22 @@ const Signup = () => {
     });
   };
 
+  // Firebase Google Signup
+  const handleGoogleSignup = async () => {
+    try {
+      showToast("info", "Signing up with Google...");
+      const result = await signInWithPopup(auth, googleProvider);
+      const firebaseUser = result.user;
+      
+      // User data is automatically set by AuthContext via onAuthStateChanged
+      showToast("success", "Signup Successful 🎉");
+      setTimeout(() => nav("/explore"), 1500);
+    } catch (error) {
+      console.error("Google signup error:", error);
+      showToast("error", error.message || "Google signup failed 😢");
+    }
+  };
+
   return (
     <div className="signup-container">
       {/* Left image section */}
@@ -110,7 +128,7 @@ const Signup = () => {
           {/* Google login */}
           <button
             className="google-btn"
-            onClick={() => window.open("https://amayasoul-ar-powered-handcrafted-store.onrender.com/google", "_self")}
+            onClick={handleGoogleSignup}
           >
             <FcGoogle size={20} style={{ marginRight: "8px" }} />
             Sign up with Google

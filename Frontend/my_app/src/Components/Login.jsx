@@ -7,6 +7,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import Swal from "sweetalert2";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../config/firebase";
 
 const Login = () => {
   const nav = useNavigate();
@@ -96,6 +98,22 @@ const Login = () => {
       });
   };
 
+  // Firebase Google Login
+  const handleGoogleLogin = async () => {
+    try {
+      showToast("info", "Signing in with Google...");
+      const result = await signInWithPopup(auth, googleProvider);
+      const firebaseUser = result.user;
+      
+      // User data is automatically set by AuthContext via onAuthStateChanged
+      showToast("success", "Login Successful 🎉");
+      setTimeout(() => nav("/explore"), 1500);
+    } catch (error) {
+      console.error("Google login error:", error);
+      showToast("error", error.message || "Google login failed 😢");
+    }
+  };
+
   return (
     <div className="main-card">
       {/* Left Section */}
@@ -159,9 +177,7 @@ const Login = () => {
           <button
             className="google-btn"
             style={{ border: "1px solid #000000ff" }}
-            onClick={() =>
-              window.open("https://amayasoul-ar-powered-handcrafted-store.onrender.com/google", "_self")
-            }
+            onClick={handleGoogleLogin}
           >
             <FcGoogle size={20} style={{ marginRight: "8px" }} />
             Continue with Google

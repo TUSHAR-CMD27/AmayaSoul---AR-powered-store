@@ -7,10 +7,9 @@ export default defineConfig({
     host: true, // allows connections from external URLs
     port: 5173,
     strictPort: false,
-    hmr: {
-      host: 'fresh-flies-look.loca.lt', // your Localtunnel URL host
-      protocol: 'https', // because Localtunnel uses https
-    },
-    allowedHosts: ['fresh-flies-look.loca.lt'],
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
   },
 });

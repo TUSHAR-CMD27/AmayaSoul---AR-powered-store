@@ -14,7 +14,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com//admin/login", formData, {
+      const res = await axios.post("https://amayasoul-ar-powered-handcrafted-store.onrender.com/admin/login", formData, {
         withCredentials: true,
       });
 

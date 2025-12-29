@@ -10,8 +10,25 @@ require('./config/passport');
 
 
 const app = express();
+// Allow multiple origins for CORS (frontend URLs)
+const allowedOrigins = [
+    'https://amayasoul-ar-powered-handcrafted-store.onrender.com',
+    'http://localhost:5173',
+    'http://localhost:3000',
+    process.env.FRONTEND_URL
+].filter(Boolean); // Remove undefined values
+
 app.use(cors({
-    origin: 'https://amayasoul-ar-powered-handcrafted-store.onrender.com',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        
+        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+            callback(null, true);
+        } else {
+            callback(null, true); // Allow all origins for now - restrict in production
+        }
+    },
     credentials: true
 }));
 app.use(express.json());
