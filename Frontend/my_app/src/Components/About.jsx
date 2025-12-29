@@ -67,12 +67,7 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
-  // Conditionally import mobile CSS
-  useEffect(() => {
-    if (isMobile) {
-      import("./About-mobile.css");
-    }
-  }, [isMobile]);
+
 
   return (
     <section id="abb" className="about-section" ref={aboutRef}>

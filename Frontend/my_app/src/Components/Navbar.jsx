@@ -5,6 +5,7 @@ import { useAuth } from "./AuthContext";
 import { useCart } from "./CartContext";
 import { gsap } from 'gsap';
 import { slideIn, fadeIn, hoverScale } from '../utils/animations';
+import "./Navbar.css"; // Static import with media queries
 
 const Navbar = () => {
   const { user, isLoggedIn, logout } = useAuth();
@@ -28,17 +29,6 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  // Load CSS dynamically
-  useEffect(() => {
-    const loadCSS = async () => {
-      if (isMobile) {
-        await import("./Navbar-mobile.css");
-      } else {
-        await import("./Navbar.css");
-      }
-    };
-    loadCSS();
-  }, [isMobile]);
 
   const closeMobileMenu = () => {
     setMenuOpen(false);
