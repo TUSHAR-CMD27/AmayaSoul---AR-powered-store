@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Explore.css";
+import { API_URL } from "../config/api";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { staggerFadeIn, fadeIn, scaleIn } from '../utils/animations';
@@ -85,7 +86,7 @@ export default function Explore() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:5000/products");
+        const res = await fetch(`${API_URL}/products`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }

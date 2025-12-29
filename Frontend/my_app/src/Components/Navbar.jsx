@@ -61,15 +61,16 @@ const Navbar = () => {
       // Subtle nav links fade - only on desktop, no transforms
       if (menuRef.current) {
         const links = menuRef.current.querySelectorAll('.navbar-link, .navbar-cart-btn');
-        gsap.fromTo(
+        // Use .from() so they default to visible (opacity: 1) if JS fails
+        gsap.from(
           links,
-          { opacity: 0 },
           {
-            opacity: 1,
+            opacity: 0,
             duration: 0.3,
             stagger: 0.03,
             delay: 0.15,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            clearProps: 'opacity' // clear opacity after animation to allow hover effects/CSS to take over
           }
         );
 

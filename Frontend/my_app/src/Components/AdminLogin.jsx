@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 import "./AdminLogin.css";
 
 const AdminLogin = () => {
@@ -14,8 +15,8 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Use local backend URL for development
-      const res = await axios.post("http://localhost:5000/admin/login", formData, {
+      // Use dynamic backend URL
+      const res = await axios.post(`${API_URL}/admin/login`, formData, {
         withCredentials: true,
       });
 

@@ -23,8 +23,13 @@
   flex-direction: row-reverse;
 }
 
+.about-row.reverse .about-text {
+  text-align: right;
+}
+
 .about-image img {
-  width: 80%;          /* fixed proportion for desktop/tablet */
+  width: 80%;
+  /* fixed proportion for desktop/tablet */
   max-height: 30rem;
   height: auto;
   object-fit: cover;

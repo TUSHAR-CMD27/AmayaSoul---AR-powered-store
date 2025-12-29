@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
+import { API_URL } from "../config/api";
 import "./AdminDashboard.css";
 
 function AdminDashboard() {
@@ -15,7 +16,7 @@ function AdminDashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get(`${API_URL}/products`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -47,7 +48,7 @@ function AdminDashboard() {
     formData.append("image", newProduct.image);
 
     try {
-      const res = await axios.post("http://localhost:5000/products", formData, {
+      const res = await axios.post(`${API_URL}/products`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -63,7 +64,7 @@ function AdminDashboard() {
   // delete product
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`${API_URL}/products/${id}`);
       setProducts(products.filter((p) => p._id !== id));
     } catch (err) {
       console.error(err);
