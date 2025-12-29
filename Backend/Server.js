@@ -61,16 +61,28 @@ const fs = require('fs');
 const frontendDist = path.join(__dirname, '../Frontend/my_app/dist');
 
 if (fs.existsSync(frontendDist)) {
+  console.log("Serving Frontend from:", frontendDist);
   app.use(express.static(frontendDist));
   
-  // SPA Fallback: Serve index.html for any unknown route
+  // SPA Fallback for Frontend routes
   app.get('*', (req, res) => {
     res.sendFile(path.join(frontendDist, 'index.html'));
   });
 } else {
-  // Fallback if no build is found
+    // If no frontend build is found (typical for separate Backend deployment)
+    console.log("Frontend build not found. Running in API-only mode.");
+    
     app.get('/', (req, res) => {
-        res.send('API is running. Frontend build not found in ../Frontend/my_app/dist');
+        res.send('<h1>API is running</h1><p>This is the Backend Server. Please visit the Frontend URL to view the website.</p>');
+    });
+
+    // Global 404 for unknown API routes or missing frontend
+    app.use((req, res) => {
+        res.status(404).send(`
+            <h1>404 Not Found</h1>
+            <p>The path <code>${req.path}</code> does not exist on this API server.</p>
+            <p>If you are trying to view the website, please ensure you are visiting the <strong>Frontend URL</strong>.</p>
+        `);
     });
 }
 
