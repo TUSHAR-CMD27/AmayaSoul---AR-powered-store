@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import Swal from "sweetalert2";
 import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../config/firebase";
+import { auth, googleProvider, isFirebaseConfigured } from "../config/firebase";
 
 const Login = () => {
   const nav = useNavigate();
@@ -100,6 +100,16 @@ const Login = () => {
 
   // Firebase Google Login
   const handleGoogleLogin = async () => {
+    if (!isFirebaseConfigured) {
+      showToast("error", "Firebase is not configured. Please set up Firebase credentials in .env file.");
+      return;
+    }
+
+    if (!auth || !googleProvider) {
+      showToast("error", "Firebase authentication is not available. Please check your configuration.");
+      return;
+    }
+
     try {
       showToast("info", "Signing in with Google...");
       const result = await signInWithPopup(auth, googleProvider);
@@ -110,7 +120,10 @@ const Login = () => {
       setTimeout(() => nav("/explore"), 1500);
     } catch (error) {
       console.error("Google login error:", error);
-      showToast("error", error.message || "Google login failed 😢");
+      // Don't show error if user cancelled
+      if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+        showToast("error", error.message || "Google login failed 😢");
+      }
     }
   };
 

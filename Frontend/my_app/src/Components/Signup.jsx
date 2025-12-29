@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../config/firebase";
+import { auth, googleProvider, isFirebaseConfigured } from "../config/firebase";
 
 const Signup = () => {
   const nav = useNavigate();
@@ -99,6 +99,16 @@ const Signup = () => {
 
   // Firebase Google Signup
   const handleGoogleSignup = async () => {
+    if (!isFirebaseConfigured) {
+      showToast("error", "Firebase is not configured. Please set up Firebase credentials in .env file.");
+      return;
+    }
+
+    if (!auth || !googleProvider) {
+      showToast("error", "Firebase authentication is not available. Please check your configuration.");
+      return;
+    }
+
     try {
       showToast("info", "Signing up with Google...");
       const result = await signInWithPopup(auth, googleProvider);
@@ -109,7 +119,10 @@ const Signup = () => {
       setTimeout(() => nav("/explore"), 1500);
     } catch (error) {
       console.error("Google signup error:", error);
-      showToast("error", error.message || "Google signup failed 😢");
+      // Don't show error if user cancelled
+      if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+        showToast("error", error.message || "Google signup failed 😢");
+      }
     }
   };
 

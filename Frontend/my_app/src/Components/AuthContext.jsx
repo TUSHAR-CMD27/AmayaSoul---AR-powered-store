@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { auth } from '../config/firebase';
+import { auth, isFirebaseConfigured } from '../config/firebase';
 import { onAuthStateChanged, signOut as firebaseSignOut } from 'firebase/auth';
 
 const AuthContext = createContext();
@@ -14,6 +14,12 @@ export function AuthProvider({ children }) {
 
   // Listen for Firebase auth state changes
   useEffect(() => {
+    // Only set up Firebase listener if Firebase is configured
+    if (!isFirebaseConfigured || !auth) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         // User is signed in
@@ -61,8 +67,10 @@ export function AuthProvider({ children }) {
   // Logout function
   const logout = async () => {
     try {
-      // Sign out from Firebase
-      await firebaseSignOut(auth);
+      // Sign out from Firebase if configured
+      if (isFirebaseConfigured && auth) {
+        await firebaseSignOut(auth);
+      }
       
       // Also call backend logout if needed
       try {

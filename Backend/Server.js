@@ -14,6 +14,7 @@ const app = express();
 const allowedOrigins = [
     'https://amayasoul-ar-powered-handcrafted-store.onrender.com',
     'http://localhost:5173',
+    'http://127.0.0.1:5173',
     'http://localhost:3000',
     process.env.FRONTEND_URL
 ].filter(Boolean); // Remove undefined values
@@ -23,13 +24,22 @@ app.use(cors({
         // Allow requests with no origin (like mobile apps or curl requests)
         if (!origin) return callback(null, true);
         
-        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+        // In development, allow all localhost origins
+        if (process.env.NODE_ENV === 'development' || origin.includes('localhost') || origin.includes('127.0.0.1')) {
+            return callback(null, true);
+        }
+        
+        // Check if origin is in allowed list
+        if (allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
-            callback(null, true); // Allow all origins for now - restrict in production
+            // For now, allow all origins (restrict in production)
+            callback(null, true);
         }
     },
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
