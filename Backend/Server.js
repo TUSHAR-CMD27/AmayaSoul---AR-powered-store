@@ -55,10 +55,24 @@ app.use(passport.session());
 app.use('/products', Productupload);
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+// Serve static files from Frontend build (if available)
+const path = require('path');
+const fs = require('fs');
+const frontendDist = path.join(__dirname, '../Frontend/my_app/dist');
+
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  
+  // SPA Fallback: Serve index.html for any unknown route
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+} else {
+  // Fallback if no build is found
+    app.get('/', (req, res) => {
+        res.send('API is running. Frontend build not found in ../Frontend/my_app/dist');
+    });
 }
-);
 
 mongoconnect();
 app.use('/',authRoutes);
