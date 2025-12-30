@@ -102,7 +102,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="navbar-logo" ref={logoRef}>
           <Link className="navbar-logo-link" to="/" onClick={closeMobileMenu}>
-            🌲 AnayaSoul
+            🌲 AmayaSoul
           </Link>
         </div>
 

@@ -22,7 +22,7 @@ const Contact = () => {
             <button type="submit" className="submit-btn">Send Message</button>
           </form>
           <p className="contact-info">
-            Or email us directly at <a href="mailto:contact@anayasoul.com">tushargadhari3@gmail.com</a>
+            Or email us directly at <a href="mailto:tushargadhari3@gmail.com">tushargadhari3@gmail.com</a>
           </p>
         </div>
       </div>

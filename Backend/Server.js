@@ -53,6 +53,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/products', Productupload);
+app.use('/', authRoutes);
+mongoconnect();
 
 
 // Serve static files from Frontend build (if available)
@@ -86,8 +88,7 @@ if (fs.existsSync(frontendDist)) {
     });
 }
 
-mongoconnect();
-app.use('/',authRoutes);
+
 
 app.listen(5000, () => {
 

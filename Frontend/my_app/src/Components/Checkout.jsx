@@ -42,7 +42,7 @@ export default function Checkout() {
       key: "rzp_test_RIkvVdg7DK7DML",
       amount: subtotal * 100,
       currency: "INR",
-      name: "ANAYA SOUL",
+      name: "AMAYA SOUL",
       description: "Checkout Payment",
       handler: function (response) {
         alert("Payment Successful! ID: " + response.razorpay_payment_id);

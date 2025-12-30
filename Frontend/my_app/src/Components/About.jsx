@@ -79,7 +79,7 @@ export default function About() {
         <div className="about-text">
           <h2>About Us</h2>
           <p>
-            At <span className="highlight">Anaya Soul</span>, we’re blending{" "}
+            At <span className="highlight">Amaya Soul</span>, we’re blending{" "}
             <b>ancient Indian traditions</b> with <b>modern AR shopping</b>. Discover handcrafted <b>clay pots</b>, nourishing <b>herbal facewashes</b>, soothing <b>natural soaps</b>, and more — all rooted in wellness, sustainability, and culture.
           </p>
         </div>

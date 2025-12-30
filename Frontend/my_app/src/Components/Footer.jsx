@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Logo & About */}
         <div className="footer-about">
-          <h2 className="footer-logo">🌲 AnayaSoul</h2>
+          <h2 className="footer-logo">🌲 AmayaSoul</h2>
           <p className="footer-text">
             We craft soulful, eco-friendly products inspired by nature. Stay connected with us!
           </p>
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} AnayaSoul. All rights reserved.
+        &copy; {new Date().getFullYear()} AmayaSoul. All rights reserved.
       </div>
     </footer>
   );

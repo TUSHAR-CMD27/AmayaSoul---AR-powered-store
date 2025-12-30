@@ -135,7 +135,7 @@ export default function Home() {
         {/* Mobile-specific content */}
         {isMobile && (
           <>
-            <h1 className='mobile-anayasoul'>ANAYASOUL</h1>
+            <h1 className='mobile-anayasoul'>AMAYASOUL</h1>
             <p className='mobile-subtitle'>The AR - Virtual Handcrafted Bazaar</p>
           </>
         )}
@@ -143,7 +143,7 @@ export default function Home() {
         {/* Desktop-specific content */}
         {!isMobile && (
           <>
-            <h1 className='happy' ref={title1Ref}>ANAYA</h1>
+            <h1 className='happy' ref={title1Ref}>AMAYA</h1>
             <h1 className='happy2' ref={title2Ref}>SOUL</h1>
             <h2 className='para' ref={subtitleRef}>The AR - Virtual Handcrafted Bazaar</h2>
           </>
